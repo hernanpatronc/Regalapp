@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RegalApp.MainPage">
+  <MasterDetailPage.Master>
+    <ContentPage Title="Regalapp!">
+      <ContentPage.Content >
+        <StackLayout Padding="0,20,0,0" HorizontalOptions="CenterAndExpand">
+          <Image Source="gift.jpg" Aspect="AspectFill"/>
+        <ListView x:Name="ListViewUser" RowHeight="30" >
+        <ListView.ItemTemplate>
+           <DataTemplate>
+             <ViewCell >
+               <StackLayout Orientation="Horizontal" Padding="20,0,0,0">
+                 <Image Source="{Binding Image}" Aspect="AspectFit"/>
+                <Label Text="{Binding Text}" TextColor="Black"/>
+               </StackLayout>
+             </ViewCell>
+           </DataTemplate>
+         </ListView.ItemTemplate>
+    </ListView>
+        </StackLayout>
+
+      </ContentPage.Content>
+    </ContentPage>
+  </MasterDetailPage.Master>
+ <MasterDetailPage.Detail>
+    <NavigationPage Tint="#ffc81d" BarBackgroundColor="#ffc81d" BarTextColor="Black" >
+      <x:Arguments>
+    <TabbedPage Title="RegalApp!" BarBackgroundColor="#ffc81d" BarTextColor="Black">
+        <TabbedPage.Children>
+          <ContentPage Title="¿H o M?" Icon="shemale.png">
+            <StackLayout VerticalOptions="CenterAndExpand">
+              <Button BorderColor="Blue" BorderWidth="1" Text="Hombre" HorizontalOptions="Fill" BackgroundColor="White" TextColor="Blue"> 
+                <Button.BorderRadius>
+                    <!-- HACK: fixes a bug where border doesn't get draw unless there is a radius. -->
+                    <OnPlatform x:TypeArguments="x:Int32">
+                        <OnPlatform.Android>1</OnPlatform.Android>
+                    </OnPlatform>
+                </Button.BorderRadius>
+              </Button>
+              <Button BorderColor="Fuchsia" BorderWidth="1" Text="Mujer" HorizontalOptions="Fill" BackgroundColor="White" TextColor="Fuchsia">
+                <Button.BorderRadius>
+                    <!-- HACK: fixes a bug where border doesn't get draw unless there is a radius. -->
+                    <OnPlatform x:TypeArguments="x:Int32">
+                        <OnPlatform.Android>1</OnPlatform.Android>
+                    </OnPlatform>
+                </Button.BorderRadius>
+              </Button>
+            </StackLayout>
+            
+          </ContentPage>
+          <ContentPage Title="¿Hobbies?" Icon="hobbies.png">
+          </ContentPage>
+        <ContentPage Title="¿Relación?" Icon="relacion.png">
+          </ContentPage>
+        </TabbedPage.Children>
+       </TabbedPage>
+
+      </x:Arguments>
+    </NavigationPage>
+  </MasterDetailPage.Detail>
+</MasterDetailPage>
